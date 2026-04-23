@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type Props = {
   dark: boolean;
   toggleDark: () => void;
@@ -13,8 +15,9 @@ export default function Header({ dark, toggleDark }: Props) {
 
       <div className="flex gap-4 md:gap-6 text-[10px] md:text-xs tracking-widest">
         
-        <a
-          href="#gallery"
+        {/* WORK → vuelve a home */}
+        <Link
+          to="/"
           className="
             relative 
             opacity-60 
@@ -31,8 +34,9 @@ export default function Header({ dark, toggleDark }: Props) {
           "
         >
           WORK
-        </a>
+        </Link>
 
+        {/* BIO */}
         <a
           href="#bio"
           className="
@@ -53,6 +57,7 @@ export default function Header({ dark, toggleDark }: Props) {
           BIO
         </a>
 
+        {/* CONTACT */}
         <a
           href="#contact"
           className="
