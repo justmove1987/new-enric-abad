@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import ArtworkPage from "./pages/ArtworkPage";
 import Hero from "./components/Hero";
 import Cursor from "./components/Cursor";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -39,6 +40,8 @@ export default function App() {
 
   return (
     <>
+    <Cursor />
+    <ScrollToTop />
       <Cursor />
 
       <div className="min-h-screen bg-white text-black dark:bg-[#0e0e0e] dark:text-white transition-colors duration-500">
