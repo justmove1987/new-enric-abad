@@ -13,6 +13,7 @@ export default function App() {
   const [dark, setDark] = useState(false);
   const location = useLocation();
 
+  // DARK MODE
   useEffect(() => {
     const root = document.documentElement;
 
@@ -23,11 +24,25 @@ export default function App() {
     }
   }, [dark]);
 
+  // SCROLL A SECCIONES (BIO / CONTACT)
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Cursor />
 
       <div className="min-h-screen bg-white text-black dark:bg-[#0e0e0e] dark:text-white transition-colors duration-500">
+        
         <Header dark={dark} toggleDark={() => setDark(!dark)} />
 
         <AnimatePresence mode="wait">
@@ -44,6 +59,7 @@ export default function App() {
                   transition={{ duration: 0.6 }}
                 >
                   <Hero />
+
                   <main id="gallery">
                     <Gallery />
                   </main>
