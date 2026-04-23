@@ -20,22 +20,22 @@ export default function Gallery() {
             <Link to={`/art/${art.id}`}>
               <img
                 src={art.image}
-                alt={art.title}
-                className={`
+                alt={`${art.title} - pintura contemporánea de Enric Abad`}
+                className="
                   w-full 
                   h-[75vh] 
                   md:h-[400px] 
                   object-cover 
-                  transition duration-700 
-                  group-hover:scale-105
-                  ${art.sold ? "opacity-60" : ""}
-                `}
+                  transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
+                  group-hover:scale-[1.03]
+                  group-hover:brightness-95
+                "
               />
             </Link>
 
-            {/* SOLD overlay */}
+            {/* SOLD */}
             {art.sold && (
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="text-white text-xl tracking-[0.3em] bg-black/70 px-4 py-2">
                   SOLD
                 </span>
@@ -50,7 +50,6 @@ export default function Gallery() {
               <p className="opacity-60">{art.price}</p>
             </div>
 
-            {/* Botón */}
             {art.sold ? (
               <span className="text-xs opacity-40">UNAVAILABLE</span>
             ) : (
@@ -63,11 +62,17 @@ export default function Gallery() {
                   border 
                   px-4 
                   py-2 
-                  hover:bg-black 
+                  relative 
+                  overflow-hidden 
+                  transition-all duration-300
                   hover:text-white 
-                  dark:hover:bg-white 
-                  dark:hover:text-black 
-                  transition
+                  dark:hover:text-black
+                  before:absolute before:inset-0 
+                  before:bg-black dark:before:bg-white 
+                  before:translate-y-full 
+                  before:transition-transform before:duration-300
+                  hover:before:translate-y-0
+                  before:-z-10
                 "
               >
                 BUY

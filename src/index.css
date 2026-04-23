@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* Tipografía */
 body {
   font-family: 'Inter', sans-serif;
+  cursor: none;
 }
 
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transiciones globales */
+* {
+  transition-property: color, background-color, border-color, transform, opacity;
+}
+* {
+  cursor: none !important;
 }

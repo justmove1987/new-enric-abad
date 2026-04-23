@@ -20,11 +20,15 @@ export default function ArtworkPage() {
       <div className="mt-10 grid md:grid-cols-2 gap-12 items-start">
         
         {/* Imagen */}
-        <img
-          src={art.image}
-          alt={art.title}
-          className="w-full max-h-[80vh] object-cover"
-        />
+        <div className="relative">
+          <img
+            src={art.image}
+            alt={`${art.title} - pintura contemporánea de Enric Abad`}
+            className="w-full max-h-[80vh] object-cover"
+          />
+
+       
+        </div>
 
         {/* Info */}
         <div className="max-w-md">
@@ -37,14 +41,30 @@ export default function ArtworkPage() {
             {art.description}
           </p>
 
-          {/* Estado / compra */}
+          {/* Estado */}
           {art.sold ? (
-            <p className="text-sm opacity-40">This piece is sold</p>
+            <div className="space-y-2">
+              <p className="text-sm opacity-50">This piece is sold</p>
+              <p className="text-xs opacity-40">
+                Contact for similar works
+              </p>
+            </div>
           ) : (
             <a
               href={art.link}
               target="_blank"
-              className="inline-block border px-6 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
+              rel="noopener noreferrer"
+              className="
+                inline-block 
+                border 
+                px-6 
+                py-3 
+                hover:bg-black 
+                hover:text-white 
+                dark:hover:bg-white 
+                dark:hover:text-black 
+                transition
+              "
             >
               BUY
             </a>
